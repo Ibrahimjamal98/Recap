@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.js">
+    <script>
+        function performManipulations() {
+            const sentence = document.getElementById("sentenceInput").value;
+
+            // Length of the sentence
+            const lengthResult = `Length of the sentence: ${sentence.length}`;
+            document.getElementById("length").textContent = lengthResult;
+
+            // Uppercase sentence
+            const uppercaseResult = `Uppercase: ${sentence.toUpperCase()}`;
+            document.getElementById("uppercase").textContent = uppercaseResult;
+
+            // Lowercase sentence
+            const lowercaseResult = `Lowercase: ${sentence.toLowerCase()}`;
+            document.getElementById("lowercase").textContent = lowercaseResult;
+
+            // Substring
+            const startIndex = parseInt(prompt("Enter starting index:"));
+            const substringLength = parseInt(prompt("Enter length of substring:"));
+            const substringResult = `Substring: ${sentence.substring(startIndex, startIndex + substringLength)}`;
+            document.getElementById("substring").textContent = substringResult;
+
+            // Replace word
+            const wordToReplace = prompt("Enter word to replace:");
+            const replacement = prompt(`Enter replacement for ${wordToReplace}:`);
+            const replacedSentence = sentence.replace(new RegExp(wordToReplace, 'g'), replacement);
+            const replaceResult = `Replaced sentence: ${replacedSentence}`;
+            document.getElementById("replace").textContent = replaceResult;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>String Manipulation</h1>
+
+    <label for="sentenceInput">Enter a sentence:</label>
+    <input type="text" id="sentenceInput">
+    <button onclick="performManipulations()">Submit</button>
+
+    <h2>Results:</h2>
+    <p id="length"></p>
+    <p id="uppercase"></p>
+    <p id="lowercase"></p>
+    <p id="substring"></p>
+    <p id="replace"></p>
+
+</body>
+
+</html>
